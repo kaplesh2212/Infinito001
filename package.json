@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
-    "build:app": "cross-env CI=false pnpm --filter \"@workspace/Infinity Focus\" run build",
-    "vercel-build": "pnpm run build:app && mkdir -p public_dist && cp -r artifacts/taskflow/dist/public/* public_dist/",
+    "build:app": "cross-env CI=false pnpm --filter \"./artifacts/taskflow\" run build",
+    "vercel-build": "pnpm run build:app && mkdir -p public_dist && cp -rv artifacts/taskflow/dist/public/* public_dist/",
     "typecheck:libs": "tsc --build",
     "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
   },
